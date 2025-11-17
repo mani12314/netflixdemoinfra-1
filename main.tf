@@ -11,7 +11,7 @@ terraform {
 
 # ✅ AWS Provider Configuration
 provider "aws" {
-  region  = "ap-southeast-2"
+  region  = "ap-south-1"
   profile = "default"   # Use credentials configured via `aws configure`
 }
 
@@ -24,10 +24,10 @@ variable "instance_names" {
 # ✅ Create EC2 Instances
 resource "aws_instance" "one" {
   count                     = length(var.instance_names)
-  ami                       = "ami-03c7b1a0c7cc99160"
+  ami                       = "ami-0f71aec9381dcafd1"
   instance_type             = "t2.micro"
-  key_name                  = "poy"
-  vpc_security_group_ids    = ["sg-0ace683866cedd2f2"]
+  key_name                  = "netfli"
+  vpc_security_group_ids    = ["sg-0186aecba26494c25"]
 
   tags = {
     Name = var.instance_names[count.index]
